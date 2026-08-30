@@ -1,1 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Sumit Kumar | Personal Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b12;
+    color:white;
+    line-height:1.6;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:#080c14;
+    border-bottom:1px solid #1c2635;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00cfff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+nav a:hover{
+    color:#00cfff;
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.profile{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    background:#00cfff;
+    color:#071019;
+    font-size:42px;
+    font-weight:bold;
+    box-shadow:0 0 30px #00cfff;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-top:30px;
+}
+
+.hero h1 span{
+    color:#00cfff;
+}
+
+.hero p{
+    color:#b8c1ce;
+    font-size:20px;
+    margin:15px 0 25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:30px;
+    background:#00cfff;
+    color:#061018;
+    text-decoration:none;
+    font-weight:bold;
+    margin:5px;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+section{
+    padding:80px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.title span{
+    color:#00cfff;
+}
+
+.about{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    color:#c5ccd6;
+    font-size:18px;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#0d1420;
+    border:1px solid #1d2a3b;
+    border-radius:18px;
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#00cfff;
+}
+
+.card h3{
+    color:#00cfff;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#b8c1ce;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.skill{
+    padding:14px 22px;
+    background:#0d1420;
+    border:1px solid #1d2a3b;
+    border-radius:30px;
+}
+
+.contact{
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#05080d;
+    color:#8f9aaa;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:40px;
+    }
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav a{
+        margin-left:8px;
+        font-size:13px;
+    }
+
+    section{
+        padding:60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SUMIT<span>.</span></div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div>
+
+        <div class="profile">SK</div>
+
+        <h1>Hi, I'm <span>Sumit Kumar</span></h1>
+
+        <p>
+            Student • AI Enthusiast • Future Professional
+        </p>
+
+        <a class="btn" href="#about">Explore My Profile</a>
+
+    </div>
+</section>
+
+<section id="about">
+
+    <h2 class="title">About <span>Me</span></h2>
+
+    <div class="about">
+        <p>
+            Hello! I'm Sumit Kumar, a Class 12th Science student
+            interested in Artificial Intelligence, technology,
+            communication and creative work. I enjoy learning new
+            skills and exploring the possibilities of AI.
+        </p>
+    </div>
+
+</section>
+
+<section id="education">
+
+    <h2 class="title">My <span>Education</span></h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Class 12th — Science (PCB)</h3>
+
+            <p>
+                Currently Studying
+            </p>
+
+            <p>
+                Uttar Pradesh Board
+            </p>
+
+            <p>
+                Expected Completion: 2027
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2 class="title">My <span>Skills</span></h2>
+
+    <div class="skills">
+
+        <div class="skill">Artificial Intelligence</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Video Editing</div>
+        <div class="skill">Computer Skills</div>
+        <div class="skill">Creative Thinking</div>
+        <div class="skill">Learning & Research</div>
+        <div class="skill">Basic Web Development</div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2 class="title">My <span>Project</span></h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>AI Learning Project</h3>
+
+            <p>
+                A personal learning project focused on understanding
+                Artificial Intelligence, exploring AI tools and
+                discovering their practical uses.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2 class="title">Contact <span>Me</span></h2>
+
+    <div class="contact">
+
+        <p>
+            You can connect with me on Instagram.
+        </p>
+
+        <br>
+
+        <a
+        class="btn"
+        href="https://www.instagram.com/king_sk_motivation_307"
+        target="_blank">
+        Instagram
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Sumit Kumar • Personal Portfolio
+</footer>
+
+</body>
+</html>
