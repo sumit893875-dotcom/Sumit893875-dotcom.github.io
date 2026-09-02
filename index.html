@@ -313,7 +313,141 @@ nav a:hover {
     transform: translateY(-2px);
   }
 
+}/* ===== PROFESSIONAL ANIMATIONS ===== */
+
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Hero animation */
+.hero {
+  animation: heroFade 1s ease-out both;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile glow */
+.profile {
+  animation: profileGlow 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.profile:hover {
+  transform: scale(1.05);
+}
+
+@keyframes profileGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(0, 200, 255, 0.75);
+  }
+}
+
+/* Navigation hover */
+nav a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+}
+
+/* Professional buttons */
+.btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 200, 255, 0.25);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* Cards */
+.card,
+.skill,
+.project,
+.education {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.skill:hover,
+.project:hover,
+.education:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* Section titles */
+.title {
+  animation: titleReveal 0.8s ease-out both;
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+footer {
+  transition: opacity 0.3s ease;
+}
+
+footer:hover {
+  opacity: 0.8;
+}
+
+/* Mobile improvement */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 50px;
+  }
+
+  .profile {
+    margin: 20px auto;
+  }
+
+  .btn {
+    transition: transform 0.25s ease;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+    }
 </style>
 </head>
 
