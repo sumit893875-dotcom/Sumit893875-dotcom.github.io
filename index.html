@@ -732,9 +732,31 @@ function calculatePercentage() {
 
     result.textContent = "Your Percentage: " + percentage.toFixed(2) + "%";
 }
-</script>
+    function createStudyPlan() {
+    const hours = Number(document.getElementById("studyHours").value);
+    const subjects = document.getElementById("subjects").value.trim();
+    const result = document.getElementById("studyPlanResult");
 
-<!-- Student Help Center -->
+    if (hours <= 0 || subjects === "") {
+        result.textContent = "Please enter study hours and subjects.";
+        return;
+    }
+
+    const subjectList = subjects
+        .split(",")
+        .map(subject => subject.trim())
+        .filter(subject => subject !== "");
+
+    const timePerSubject = (hours / subjectList.length).toFixed(1);
+
+    let plan = "📚 Your Daily Study Plan: ";
+
+    subjectList.forEach((subject, index) => {
+        plan += `${index + 1}. ${subject} — ${timePerSubject} hrs  `;
+    });
+
+    result.textContent = plan;
+    }
 </script>
 
 <!-- Student Help Center -->
@@ -772,7 +794,29 @@ function calculatePercentage() {
 
     <p id="percentageResult"></p>
     </div>
+<div class="card">
+    <h3>⏰ Study Planner</h3>
 
+    <input
+        type="number"
+        id="studyHours"
+        placeholder="Daily Study Hours"
+        min="1"
+        max="16"
+    >
+
+    <input
+        type="text"
+        id="subjects"
+        placeholder="Subjects (e.g. Physics, Chemistry, Biology)"
+    >
+
+    <button class="btn" onclick="createStudyPlan()">
+        Create Study Plan
+    </button>
+
+    <p id="studyPlanResult"></p>
+</div>
     <div class="card">
         <h3>🎯 Career Guide</h3>
         <p>Explore courses and career options after Class 12.</p>
