@@ -1,1 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Sumit Kumar | Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#061018;
+    color:#fff;
+    line-height:1.6;
+    transition:0.4s;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:18px 6%;
+    background:rgba(6,16,24,0.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,200,255,0.15);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.logo span{
+    color:#00c8ff;
+}
+
+nav div{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00c8ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 6%;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.profile{
+    width:210px;
+    height:210px;
+    margin:0 auto 35px;
+    border-radius:50%;
+
+    background:#00c8ff;
+    color:#061018;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+    font-weight:bold;
+
+    box-shadow:0 0 35px rgba(0,200,255,0.7);
+
+    animation:glow 3s infinite;
+}
+
+@keyframes glow{
+    0%,100%{
+        box-shadow:0 0 25px rgba(0,200,255,0.5);
+    }
+    50%{
+        box-shadow:0 0 55px rgba(0,200,255,0.9);
+    }
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#00c8ff;
+}
+
+.hero p{
+    color:#b7c4cc;
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border:none;
+    border-radius:50px;
+
+    background:#00c8ff;
+    color:#061018;
+
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,200,255,0.3);
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 7%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section h2{
+    text-align:center;
+    color:#00c8ff;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+section > p{
+    text-align:center;
+    color:#b7c4cc;
+    margin-bottom:35px;
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(15,25,35,0.8);
+    border:1px solid rgba(0,200,255,0.15);
+    border-radius:20px;
+    padding:25px;
+    margin:20px 0;
+
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,200,255,0.55);
+    box-shadow:0 15px 40px rgba(0,200,255,0.12);
+}
+
+.card h3{
+    color:#00c8ff;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#c4cdd3;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:rgba(15,25,35,0.8);
+    border:1px solid rgba(0,200,255,0.15);
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill:hover{
+    transform:translateY(-7px);
+    border-color:#00c8ff;
+}
+
+/* INPUTS */
+
+input{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+
+    border:1px solid rgba(0,200,255,0.3);
+    border-radius:10px;
+
+    background:#0b1720;
+    color:#fff;
+    outline:none;
+}
+
+input:focus{
+    border-color:#00c8ff;
+}
+
+/* RESULT */
+
+#percentageResult,
+#studyPlanResult{
+    margin-top:18px;
+    color:#00c8ff;
+    font-weight:bold;
+    white-space:pre-line;
+}
+
+/* THEME BUTTON */
+
+.theme-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:52px;
+    height:52px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#00c8ff;
+    color:#061018;
+
+    font-size:22px;
+    cursor:pointer;
+
+    z-index:9999;
+
+    box-shadow:0 0 20px rgba(0,200,255,0.5);
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+    background:#f5f7fa;
+    color:#111;
+}
+
+.light-mode nav{
+    background:rgba(255,255,255,0.9);
+}
+
+.light-mode nav a{
+    color:#111;
+}
+
+.light-mode .logo{
+    color:#111;
+}
+
+.light-mode .card,
+.light-mode .skill{
+    background:#fff;
+    color:#222;
+}
+
+.light-mode .card p,
+.light-mode section > p{
+    color:#444;
+}
+
+.light-mode input{
+    background:#fff;
+    color:#111;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    border-top:1px solid rgba(0,200,255,0.15);
+    color:#9caab3;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    nav{
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav div{
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:80vh;
+        padding-top:50px;
+    }
+
+    .profile{
+        width:170px;
+        height:170px;
+        font-size:55px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+
+    section h2{
+        font-size:28px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        SUMIT<span>.</span>
+    </div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#student-help">Student Help</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="profile">
+            SK
+        </div>
+
+        <h1>
+            Hi, I'm <span>Sumit Kumar</span>
+        </h1>
+
+        <p>
+            Student • AI Enthusiast • Future Professional
+        </p>
+
+        <a class="btn" href="#about">
+            Explore My Profile
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        I'm Sumit Kumar, a Class 12th Science student interested in
+        AI, Web Development and Technology.
+    </p>
+
+    <div class="card">
+
+        <h3>👨‍🎓 Who Am I?</h3>
+
+        <p>
+            I enjoy learning new technologies, building projects,
+            improving my computer skills and exploring Artificial Intelligence.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <h2>Education</h2>
+
+    <div class="card">
+
+        <h3>🎓 Class 12th - Science</h3>
+
+        <p>
+            Uttar Pradesh Board
+        </p>
+
+        <p>
+            Expected Completion: 2027
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2>Skills</h2>
+
+    <p>
+        Things I am learning and improving.
+    </p>
+
+    <div class="skills">
+
+        <div class="skill">
+            🤖<br>
+            Artificial Intelligence
+        </div>
+
+        <div class="skill">
+            💻<br>
+            Computer Skills
+        </div>
+
+        <div class="skill">
+            🌐<br>
+            Basic Web Development
+        </div>
+
+        <div class="skill">
+            🎬<br>
+            Video Editing
+        </div>
+
+        <div class="skill">
+            💬<br>
+            Communication
+        </div>
+
+        <div class="skill">
+            🧠<br>
+            Creative Thinking
+        </div>
+
+        <div class="skill">
+            🔎<br>
+            Learning & Research
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2>Projects</h2>
+
+    <p>
+        My learning projects.
+    </p>
+
+    <div class="card">
+
+        <h3>🌐 Portfolio Website</h3>
+
+        <p>
+            A personal portfolio website created using HTML, CSS and JavaScript.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🤖 AI Learning Project</h3>
+
+        <p>
+            Exploring Artificial Intelligence and learning how AI works.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- STUDENT HELP CENTER -->
+
+<section id="student-help">
+
+    <h2>🎓 Student Help Center</h2>
+
+    <p>
+        Useful resources and tools for students — all in one place.
+    </p>
+
+
+    <!-- STUDY RESOURCES -->
+
+    <div class="card">
+
+        <h3>📚 Study Resources</h3>
+
+        <p>
+            Notes, important questions and revision materials.
+        </p>
+
+    </div>
+
+
+    <!-- PERCENTAGE CALCULATOR -->
+
+    <div class="card">
+
+        <h3>🧮 Percentage Calculator</h3>
+
+        <input
+            type="number"
+            id="obtainedMarks"
+            placeholder="Obtained Marks"
+        >
+
+        <input
+            type="number"
+            id="totalMarks"
+            placeholder="Total Marks"
+        >
+
+        <button
+            class="btn"
+            onclick="calculatePercentage()"
+        >
+            Calculate Percentage
+        </button>
+
+        <p id="percentageResult"></p>
+
+    </div>
+
+
+    <!-- STUDY PLANNER -->
+
+    <div class="card">
+
+        <h3>⏰ Study Planner</h3>
+
+        <input
+            type="number"
+            id="studyHours"
+            placeholder="Daily Study Hours"
+            min="1"
+            max="16"
+        >
+
+        <input
+            type="text"
+            id="subjects"
+            placeholder="Subjects e.g. Physics, Chemistry, Biology"
+        >
+
+        <button
+            class="btn"
+            onclick="createStudyPlan()"
+        >
+            Create Study Plan
+        </button>
+
+        <p id="studyPlanResult"></p>
+
+    </div>
+
+
+    <!-- CAREER GUIDE -->
+
+    <div class="card">
+
+        <h3>🎯 Career Guide</h3>
+
+        <p>
+            Explore courses and career options after Class 12.
+        </p>
+
+    </div>
+
+
+    <!-- AI STUDY HELP -->
+
+    <div class="card">
+
+        <h3>🤖 AI Study Help</h3>
+
+        <p>
+            Get simple explanations and study assistance.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact</h2>
+
+    <p>
+        Connect with me.
+    </p>
+
+    <div class="card">
+
+        <h3>📱 Instagram</h3>
+
+        <p>
+            Follow me on Instagram.
+        </p>
+
+        <br>
+
+        <a
+            class="btn"
+            href="https://www.instagram.com/king_sk_motivation_307/"
+            target="_blank"
+        >
+            Open Instagram
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Sumit Kumar. All Rights Reserved.
+
+</footer>
+
+
+<!-- THEME BUTTON -->
+
+<button
+    class="theme-btn"
+    onclick="toggleTheme()"
+>
+    🌙
+</button>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* DARK / LIGHT MODE */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("light-mode");
+
+    const button =
+        document.querySelector(".theme-btn");
+
+    if(
+        document.body.classList.contains("light-mode")
+    ){
+
+        button.innerHTML = "☀️";
+
+    }else{
+
+        button.innerHTML = "🌙";
+
+    }
+
+}
+
+
+/* PERCENTAGE CALCULATOR */
+
+function calculatePercentage(){
+
+    const obtained =
+        Number(
+            document.getElementById("obtainedMarks").value
+        );
+
+    const total =
+        Number(
+            document.getElementById("totalMarks").value
+        );
+
+    const result =
+        document.getElementById("percentageResult");
+
+
+    if(
+        total <= 0 ||
+        obtained < 0 ||
+        obtained > total
+    ){
+
+        result.textContent =
+            "Please enter valid marks.";
+
+        return;
+
+    }
+
+
+    const percentage =
+        (obtained / total) * 100;
+
+
+    result.textContent =
+        "Your Percentage: "
+        + percentage.toFixed(2)
+        + "%";
+
+}
+
+
+/* STUDY PLANNER */
+
+function createStudyPlan(){
+
+    const hours =
+        Number(
+            document.getElementById("studyHours").value
+        );
+
+    const subjects =
+        document
+        .getElementById("subjects")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("studyPlanResult");
+
+
+    if(
+        !hours ||
+        hours <= 0 ||
+        subjects === ""
+    ){
+
+        result.textContent =
+            "Please enter study hours and subjects.";
+
+        return;
+
+    }
+
+
+    const subjectList =
+        subjects
+        .split(",")
+        .map(
+            subject => subject.trim()
+        )
+        .filter(
+            subject => subject !== ""
+        );
+
+
+    if(subjectList.length === 0){
+
+        result.textContent =
+            "Please enter at least one subject.";
+
+        return;
+
+    }
+
+
+    const timePerSubject =
+        (hours / subjectList.length)
+        .toFixed(1);
+
+
+    let plan =
+        "📚 Your Daily Study Plan:\n\n";
+
+
+    subjectList.forEach(
+        (subject, index) => {
+
+            plan +=
+                (index + 1)
+                + ". "
+                + subject
+                + " — "
+                + timePerSubject
+                + " hours\n";
+
+        }
+    );
+
+
+    result.textContent = plan;
+
+}
+
+</script>
+
+</body>
+  </html>
