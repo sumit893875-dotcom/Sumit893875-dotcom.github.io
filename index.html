@@ -715,7 +715,26 @@ function toggleTheme() {
     } else {
         button.innerHTML = "🌙";
     }
+}</script>
+
+<script>
+function calculatePercentage() {
+    const obtained = Number(document.getElementById("obtainedMarks").value);
+    const total = Number(document.getElementById("totalMarks").value);
+    const result = document.getElementById("percentageResult");
+
+    if (total <= 0 || obtained < 0 || obtained > total) {
+        result.textContent = "Please enter valid marks.";
+        return;
+    }
+
+    const percentage = (obtained / total) * 100;
+
+    result.textContent = "Your Percentage: " + percentage.toFixed(2) + "%";
 }
+</script>
+
+<!-- Student Help Center -->
 </script>
 
 <!-- Student Help Center -->
@@ -733,8 +752,25 @@ function toggleTheme() {
     </div>
 
     <div class="card">
-        <h3>🧮 Student Tools</h3>
-        <p>Percentage calculator, study planner and other useful tools.</p>
+    <h3>🧮 Percentage Calculator</h3>
+
+    <input
+        type="number"
+        id="obtainedMarks"
+        placeholder="Obtained Marks"
+    >
+
+    <input
+        type="number"
+        id="totalMarks"
+        placeholder="Total Marks"
+    >
+
+    <button class="btn" onclick="calculatePercentage()">
+        Calculate Percentage
+    </button>
+
+    <p id="percentageResult"></p>
     </div>
 
     <div class="card">
