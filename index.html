@@ -461,8 +461,96 @@ footer:hover {
   }
      /* ===== PREMIUM PROFESSIONAL DESIGN ===== */
      nav {
-       ...
-     }
+    
+     }/* ===== PREMIUM DESIGN ===== */
+
+body {
+    line-height: 1.6;
+}
+
+nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 200, 255, 0.15);
+}
+
+nav a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #00c8ff;
+    transform: translateY(-2px);
+}nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: #00c8ff;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.card,
+.skill,
+.project,
+.education,
+.contact {
+    border: 1px solid rgba(0, 200, 255, 0.15);
+    border-radius: 20px;
+    transition: all 0.35s ease;
+}
+
+.card:hover,
+.skill:hover,
+.project:hover,
+.education:hover,
+.contact:hover {
+    border-color: rgba(0, 200, 255, 0.55);
+    transform: translateY(-7px);
+    box-shadow: 0 15px 40px rgba(0, 200, 255, 0.12);
+}.btn {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 200, 255, 0.25);
+}
+
+.hero h1 {
+    text-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+}
+
+section {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        font-size: 13px;
+    }
+
+    section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .card,
+    .skill,
+    .project,
+    .education,
+    .contact {
+        border-radius: 18px;
+    }
+}
       </style>
  </head>
 
