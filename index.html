@@ -637,16 +637,26 @@ footer{
 
 
     <!-- CAREER GUIDE -->
+<div class="card">
+    <h3>🎯 Career Guide</h3>
 
-    <div class="card">
+    <p>Class 12 के बाद अपना career option चुनें:</p>
 
-        <h3>🎯 Career Guide</h3>
+    <select id="careerStream">
+        <option value="">-- Select Stream --</option>
+        <option value="pcb">Science (PCB)</option>
+        <option value="pcm">Science (PCM)</option>
+        <option value="commerce">Commerce</option>
+        <option value="arts">Arts / Humanities</option>
+    </select>
 
-        <p>
-            Explore courses and career options after Class 12.
-        </p>
+    <button class="btn" onclick="showCareerGuide()">
+        Explore Careers
+    </button>
 
-    </div>
+    <p id="careerResult"></p>
+</div>
+    
 
 
     <!-- AI STUDY HELP -->
@@ -869,7 +879,32 @@ function createStudyPlan(){
     result.textContent = plan;
 
 }
+function showCareerGuide() {
+    const stream = document.getElementById("careerStream").value;
+    const result = document.getElementById("careerResult");
 
+    if (stream === "") {
+        result.textContent = "Please select your stream first.";
+        return;
+    }
+
+    let careers = "";
+
+    if (stream === "pcb") {
+        careers = "🧬 PCB: MBBS • BDS • B.Pharm • Nursing • Biotechnology • Physiotherapy • Forensic Science • BBA • BCA • LLB • BA • UPSC • SSC";
+    }
+    else if (stream === "pcm") {
+        careers = "⚙️ PCM: B.Tech • Engineering • BCA • B.Sc • Computer Science • Data Science • BBA • MBA • LLB • UPSC • SSC";
+    }
+    else if (stream === "commerce") {
+        careers = "💼 Commerce: B.Com • BBA • MBA • CA • CS • CMA • Banking • Finance • LLB • UPSC • SSC";
+    }
+    else if (stream === "arts") {
+        careers = "📚 Arts: BA • LLB • BBA • MBA • Psychology • Journalism • Teaching • UPSC • SSC • Banking";
+    }
+
+    result.textContent = careers;
+    }
 </script>
 
 </body>
