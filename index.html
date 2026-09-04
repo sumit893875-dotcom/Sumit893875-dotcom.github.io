@@ -602,8 +602,54 @@ footer{
         <p id="percentageResult"></p>
 
     </div>
+<!-- CAREER EXPLORER -->
+<div class="card">
+    <h3>🎯 Career Explorer</h3>
 
+    <p>Class 12 के बाद अपनी पसंद का career चुनें:</p>
 
+    <div class="career-buttons">
+
+        <button class="btn" onclick="openCareerDetails('bba')">
+            🎓 BBA
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('mba')">
+            🎓 MBA
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('llb')">
+            ⚖️ LLB
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('upsc')">
+            🏛️ UPSC
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('ssc')">
+            📋 SSC
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('bpharm')">
+            💊 B.Pharm
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('mbbs')">
+            🩺 MBBS
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('bca')">
+            💻 BCA
+        </button>
+
+        <button class="btn" onclick="openCareerDetails('banking')">
+            🏦 Banking
+        </button>
+
+    </div>
+
+    <div id="careerDetails"></div>
+</div>
     <!-- STUDY PLANNER -->
 
     <div class="card">
@@ -634,28 +680,6 @@ footer{
         <p id="studyPlanResult"></p>
 
     </div>
-
-
-    <!-- CAREER GUIDE -->
-<div class="card">
-    <h3>🎯 Career Guide</h3>
-
-    <p>Class 12 के बाद अपना career option चुनें:</p>
-
-    <select id="careerStream">
-        <option value="">-- Select Stream --</option>
-        <option value="pcb">Science (PCB)</option>
-        <option value="pcm">Science (PCM)</option>
-        <option value="commerce">Commerce</option>
-        <option value="arts">Arts / Humanities</option>
-    </select>
-
-    <button class="btn" onclick="showCareerGuide()">
-        Explore Careers
-    </button>
-
-    <p id="careerResult"></p>
-</div>
     
 
 
@@ -880,6 +904,7 @@ function createStudyPlan(){
 
 }
 function showCareerGuide() {
+
     const stream = document.getElementById("careerStream").value;
     const result = document.getElementById("careerResult");
 
@@ -891,20 +916,158 @@ function showCareerGuide() {
     let careers = "";
 
     if (stream === "pcb") {
-        careers = "🧬 PCB: MBBS • BDS • B.Pharm • Nursing • Biotechnology • Physiotherapy • Forensic Science • BBA • BCA • LLB • BA • UPSC • SSC";
+        careers =
+        "🧬 PCB Careers:\n\n" +
+        "• MBBS — Doctor\n" +
+        "• BDS — Dentist\n" +
+        "• B.Pharm — Pharmacy\n" +
+        "• D.Pharm — Diploma in Pharmacy\n" +
+        "• B.Sc Nursing — Nursing\n" +
+        "• Biotechnology\n" +
+        "• Physiotherapy\n" +
+        "• Forensic Science";
     }
+
     else if (stream === "pcm") {
-        careers = "⚙️ PCM: B.Tech • Engineering • BCA • B.Sc • Computer Science • Data Science • BBA • MBA • LLB • UPSC • SSC";
+        careers =
+        "⚙️ PCM Careers:\n\n" +
+        "• B.Tech — Engineering\n" +
+        "• B.Sc — Science\n" +
+        "• Architecture\n" +
+        "• Computer Science\n" +
+        "• Defence\n" +
+        "• Data Science";
     }
+
     else if (stream === "commerce") {
-        careers = "💼 Commerce: B.Com • BBA • MBA • CA • CS • CMA • Banking • Finance • LLB • UPSC • SSC";
+        careers =
+        "💼 Commerce Careers:\n\n" +
+        "• B.Com\n" +
+        "• BBA\n" +
+        "• MBA\n" +
+        "• CA\n" +
+        "• CS\n" +
+        "• Banking\n" +
+        "• Finance";
     }
+
     else if (stream === "arts") {
-        careers = "📚 Arts: BA • LLB • BBA • MBA • Psychology • Journalism • Teaching • UPSC • SSC • Banking";
+        careers =
+        "🎓 Arts Careers:\n\n" +
+        "• BA\n" +
+        "• LLB\n" +
+        "• UPSC\n" +
+        "• SSC\n" +
+        "• Teaching\n" +
+        "• Journalism\n" +
+        "• Psychology";
     }
 
     result.textContent = careers;
+            }
     }
+function openCareerDetails(career) {
+
+    const details = {
+        bba: {
+            title: "🎓 BBA — Bachelor of Business Administration",
+            course: "Bachelor of Business Administration",
+            duration: "3 Years",
+            eligibility: "12th Pass",
+            admission: "University/College के नियम के अनुसार",
+            scope: "Management • Marketing • Finance • HR • Business"
+        },
+
+        mba: {
+            title: "🎓 MBA — Master of Business Administration",
+            course: "Master of Business Administration",
+            duration: "2 Years",
+            eligibility: "Graduation",
+            admission: "University/Entrance Exam के अनुसार",
+            scope: "Management • Finance • Marketing • HR • Consulting"
+        },
+
+        llb: {
+            title: "⚖️ LLB — Law",
+            course: "LLB / 5-Year Integrated Law",
+            duration: "3 Years (after Graduation) / 5 Years (after 12th)",
+            eligibility: "12th for 5-year law course",
+            admission: "CLAT/University admission के अनुसार",
+            scope: "Lawyer • Legal Advisor • Judiciary • Corporate Law"
+        },
+
+        upsc: {
+            title: "🏛️ UPSC Civil Services",
+            course: "Civil Services Examination",
+            duration: "Preparation varies",
+            eligibility: "Graduation",
+            admission: "UPSC Civil Services Examination",
+            scope: "IAS • IPS • IFS • अन्य Civil Services"
+        },
+
+        ssc: {
+            title: "📋 SSC Government Jobs",
+            course: "SSC Examinations",
+            duration: "Exam के अनुसार",
+            eligibility: "Exam के अनुसार",
+            admission: "SSC Examination",
+            scope: "Central Government Jobs • Administration • Accounts • Other Services"
+        },
+
+        banking: {
+            title: "🏦 Banking",
+            course: "Banking & Finance",
+            duration: "Exam/Course के अनुसार",
+            eligibility: "Exam के अनुसार",
+            admission: "IBPS • SBI • अन्य recruitment exams",
+            scope: "Bank PO • Clerk • Specialist Roles • Banking Services"
+        },
+
+        bpharm: {
+            title: "💊 B.Pharm — Bachelor of Pharmacy",
+            course: "Bachelor of Pharmacy",
+            duration: "4 Years",
+            eligibility: "12th with required subjects",
+            admission: "College/State admission rules के अनुसार",
+            scope: "Pharma Industry • Hospital • Research • Pharmacy"
+        },
+
+        mbbs: {
+            title: "🩺 MBBS",
+            course: "Bachelor of Medicine and Bachelor of Surgery",
+            duration: "लगभग 5.5 Years including internship",
+            eligibility: "12th with PCB + required entrance eligibility",
+            admission: "NEET-UG",
+            scope: "Doctor • Hospital • Clinical Practice • Medical Services"
+        },
+
+        bca: {
+            title: "💻 BCA — Bachelor of Computer Applications",
+            course: "Bachelor of Computer Applications",
+            duration: "आमतौर पर 3–4 Years",
+            eligibility: "12th",
+            admission: "University/College के नियम के अनुसार",
+            scope: "Software • Web Development • IT • Applications"
+        }
+    };
+
+    const data = details[career];
+
+    if (!data) return;
+
+    const result = document.getElementById("careerDetails");
+
+    result.innerHTML = `
+        <div class="career-detail-box">
+            <h3>${data.title}</h3>
+            <p><strong>🎓 Course:</strong> ${data.course}</p>
+            <p><strong>⏳ Duration:</strong> ${data.duration}</p>
+            <p><strong>📝 Eligibility:</strong> ${data.eligibility}</p>
+            <p><strong>🧾 Admission:</strong> ${data.admission}</p>
+            <p><strong>💼 Career Scope:</strong> ${data.scope}</p>
+        </div>
+    `;
+        }
 </script>
 
 </body>
