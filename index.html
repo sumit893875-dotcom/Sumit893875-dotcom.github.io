@@ -903,68 +903,7 @@ function createStudyPlan(){
     result.textContent = plan;
 
 }
-function showCareerGuide() {
 
-    const stream = document.getElementById("careerStream").value;
-    const result = document.getElementById("careerResult");
-
-    if (stream === "") {
-        result.textContent = "Please select your stream first.";
-        return;
-    }
-
-    let careers = "";
-
-    if (stream === "pcb") {
-        careers =
-        "🧬 PCB Careers:\n\n" +
-        "• MBBS — Doctor\n" +
-        "• BDS — Dentist\n" +
-        "• B.Pharm — Pharmacy\n" +
-        "• D.Pharm — Diploma in Pharmacy\n" +
-        "• B.Sc Nursing — Nursing\n" +
-        "• Biotechnology\n" +
-        "• Physiotherapy\n" +
-        "• Forensic Science";
-    }
-
-    else if (stream === "pcm") {
-        careers =
-        "⚙️ PCM Careers:\n\n" +
-        "• B.Tech — Engineering\n" +
-        "• B.Sc — Science\n" +
-        "• Architecture\n" +
-        "• Computer Science\n" +
-        "• Defence\n" +
-        "• Data Science";
-    }
-
-    else if (stream === "commerce") {
-        careers =
-        "💼 Commerce Careers:\n\n" +
-        "• B.Com\n" +
-        "• BBA\n" +
-        "• MBA\n" +
-        "• CA\n" +
-        "• CS\n" +
-        "• Banking\n" +
-        "• Finance";
-    }
-
-    else if (stream === "arts") {
-        careers =
-        "🎓 Arts Careers:\n\n" +
-        "• BA\n" +
-        "• LLB\n" +
-        "• UPSC\n" +
-        "• SSC\n" +
-        "• Teaching\n" +
-        "• Journalism\n" +
-        "• Psychology";
-    }
-
-    result.textContent = careers;
-            }
     }
 function openCareerDetails(career) {
 
