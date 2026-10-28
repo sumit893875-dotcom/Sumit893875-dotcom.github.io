@@ -561,16 +561,18 @@ footer{
     </p>
 
 
-    <!-- STUDY RESOURCES -->
-
     <div class="card">
+    <h3>📚 Study Resources</h3>
 
-        <h3>📚 Study Resources</h3>
+    <p>
+        Class 12 PCB study materials एक जगह।
+    </p>
 
-        <p>
-            Notes, important questions and revision materials.
-        </p>
+    <button class="btn" onclick="showResources()">
+        📖 View Resources
+    </button>
 
+    <div id="resourcesList"></div>
     </div>
 
 
@@ -1001,7 +1003,19 @@ function openCareerDetails(career) {
             <p><strong>💼 Career Scope:</strong> ${data.scope}</p>
         </div>
     `;
-        }
+ function showResources() {
+    const list = document.getElementById("resourcesList");
+
+    list.innerHTML = `
+        <div class="card">
+            <h3>📚 Class 12 PCB Resources</h3>
+            <p>Physics, Chemistry और Biology के important notes और questions.</p>
+            <p>📝 Important Questions</p>
+            <p>📖 Chapter-wise Revision</p>
+            <p>🎯 Board Exam Preparation</p>
+        </div>
+    `;
+ }       
 </script>
 
 </body>
