@@ -753,86 +753,68 @@ footer{
 <!-- JAVASCRIPT -->
 
 <script>
+ /* =========================
+   DARK / LIGHT MODE
+========================= */
 
-/* DARK / LIGHT MODE */
-
-function toggleTheme(){
-
+function toggleTheme() {
     document.body.classList.toggle("light-mode");
 
-    const button =
-        document.querySelector(".theme-btn");
+    const button = document.querySelector(".theme-btn");
 
-    if(
-        document.body.classList.contains("light-mode")
-    ){
-
+    if (document.body.classList.contains("light-mode")) {
         button.innerHTML = "☀️";
-
-    }else{
-
+    } else {
         button.innerHTML = "🌙";
-
     }
-
 }
 
 
-/* PERCENTAGE CALCULATOR */
+/* =========================
+   PERCENTAGE CALCULATOR
+========================= */
 
-function calculatePercentage(){
+function calculatePercentage() {
 
-    const obtained =
-        Number(
-            document.getElementById("obtainedMarks").value
-        );
+    const obtained = Number(
+        document.getElementById("obtainedMarks").value
+    );
 
-    const total =
-        Number(
-            document.getElementById("totalMarks").value
-        );
+    const total = Number(
+        document.getElementById("totalMarks").value
+    );
 
-    const result =
-        document.getElementById("percentageResult");
+    const result = document.getElementById("percentageResult");
 
-
-    if(
+    if (
+        !Number.isFinite(obtained) ||
+        !Number.isFinite(total) ||
         total <= 0 ||
         obtained < 0 ||
         obtained > total
-    ){
-
-        result.textContent =
-            "Please enter valid marks.";
-
+    ) {
+        result.textContent = "Please enter valid marks.";
         return;
-
     }
 
-
-    const percentage =
-        (obtained / total) * 100;
-
+    const percentage = (obtained / total) * 100;
 
     result.textContent =
-        "Your Percentage: "
-        + percentage.toFixed(2)
-        + "%";
-
+        "Your Percentage: " + percentage.toFixed(2) + "%";
 }
 
 
-/* STUDY PLANNER */
+/* =========================
+   STUDY PLANNER
+========================= */
 
-function createStudyPlan(){
+function createStudyPlan() {
 
-    const hours =
-        Number(
-            document.getElementById("studyHours").value
-        );
+    const hours = Number(
+        document.getElementById("studyHours").value
+    );
 
-    const subjects =
-        document
+    const subjects = document
         .getElementById("subjects")
         .value
         .trim();
@@ -840,77 +822,101 @@ function createStudyPlan(){
     const result =
         document.getElementById("studyPlanResult");
 
-
-    if(
-        !hours ||
-        hours <= 0 ||
-        subjects === ""
-    ){
-
+    if (!hours || hours <= 0 || subjects === "") {
         result.textContent =
             "Please enter study hours and subjects.";
-
         return;
-
     }
 
-
-    const subjectList =
-        subjects
+    const subjectList = subjects
         .split(",")
-        .map(
-            subject => subject.trim()
-        )
-        .filter(
-            subject => subject !== ""
-        );
+        .map(subject => subject.trim())
+        .filter(subject => subject !== "");
 
-
-    if(subjectList.length === 0){
-
+    if (subjectList.length === 0) {
         result.textContent =
             "Please enter at least one subject.";
-
         return;
-
     }
-
 
     const timePerSubject =
-        (hours / subjectList.length)
-        .toFixed(1);
+        (hours / subjectList.length).toFixed(1);
 
+    let plan = "📚 Your Daily Study Plan:\n\n";
 
-    let plan =
-        "📚 Your Daily Study Plan:\n\n";
+    subjectList.forEach((subject, index) => {
 
-
-    subjectList.forEach(
-        (subject, index) => {
-
-            plan +=
-                (index + 1)
-                + ". "
-                + subject
-                + " — "
-                + timePerSubject
-                + " hours\n";
-
-        }
-    );
-
+        plan +=
+            (index + 1) +
+            ". " +
+            subject +
+            " — " +
+            timePerSubject +
+            " hours\n";
+    });
 
     result.textContent = plan;
+}
+
+
+/* =========================
+   STUDY RESOURCES
+========================= */
+
+function showResources() {
+
+    const list =
+        document.getElementById("resourcesList");
+
+    if (!list) {
+        alert("Resources section not found.");
+        return;
     }
+
+    list.innerHTML = `
+        <div class="card" style="margin-top:20px;">
+
+            <h3>📚 Class 12 PCB Resources</h3>
+
+            <p>
+                📘 Physics — Important Questions
+            </p>
+
+            <p>
+                🧪 Chemistry — Important Questions
+            </p>
+
+            <p>
+                🧬 Biology — Important Questions
+            </p>
+
+            <p>
+                📝 Chapter-wise Revision
+            </p>
+
+            <p>
+                🎯 UP Board Exam Preparation
+            </p>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   CAREER EXPLORER
+========================= */
+
 function openCareerDetails(career) {
 
     const details = {
+
         bba: {
             title: "🎓 BBA — Bachelor of Business Administration",
             course: "Bachelor of Business Administration",
             duration: "3 Years",
             eligibility: "12th Pass",
-            admission: "University/College के नियम के अनुसार",
+            admission: "University/College rules",
             scope: "Management • Marketing • Finance • HR • Business"
         },
 
@@ -919,16 +925,16 @@ function openCareerDetails(career) {
             course: "Master of Business Administration",
             duration: "2 Years",
             eligibility: "Graduation",
-            admission: "University/Entrance Exam के अनुसार",
+            admission: "University/Entrance Exam",
             scope: "Management • Finance • Marketing • HR • Consulting"
         },
 
         llb: {
             title: "⚖️ LLB — Law",
             course: "LLB / 5-Year Integrated Law",
-            duration: "3 Years (after Graduation) / 5 Years (after 12th)",
+            duration: "3 Years after Graduation / 5 Years after 12th",
             eligibility: "12th for 5-year law course",
-            admission: "CLAT/University admission के अनुसार",
+            admission: "CLAT/University admission",
             scope: "Lawyer • Legal Advisor • Judiciary • Corporate Law"
         },
 
@@ -938,7 +944,7 @@ function openCareerDetails(career) {
             duration: "Preparation varies",
             eligibility: "Graduation",
             admission: "UPSC Civil Services Examination",
-            scope: "IAS • IPS • IFS • अन्य Civil Services"
+            scope: "IAS • IPS • IFS • Other Civil Services"
         },
 
         ssc: {
@@ -947,16 +953,7 @@ function openCareerDetails(career) {
             duration: "Exam के अनुसार",
             eligibility: "Exam के अनुसार",
             admission: "SSC Examination",
-            scope: "Central Government Jobs • Administration • Accounts • Other Services"
-        },
-
-        banking: {
-            title: "🏦 Banking",
-            course: "Banking & Finance",
-            duration: "Exam/Course के अनुसार",
-            eligibility: "Exam के अनुसार",
-            admission: "IBPS • SBI • अन्य recruitment exams",
-            scope: "Bank PO • Clerk • Specialist Roles • Banking Services"
+            scope: "Central Government Jobs • Administration • Accounts"
         },
 
         bpharm: {
@@ -964,7 +961,7 @@ function openCareerDetails(career) {
             course: "Bachelor of Pharmacy",
             duration: "4 Years",
             eligibility: "12th with required subjects",
-            admission: "College/State admission rules के अनुसार",
+            admission: "College/State admission rules",
             scope: "Pharma Industry • Hospital • Research • Pharmacy"
         },
 
@@ -972,7 +969,7 @@ function openCareerDetails(career) {
             title: "🩺 MBBS",
             course: "Bachelor of Medicine and Bachelor of Surgery",
             duration: "लगभग 5.5 Years including internship",
-            eligibility: "12th with PCB + required entrance eligibility",
+            eligibility: "12th with PCB + required eligibility",
             admission: "NEET-UG",
             scope: "Doctor • Hospital • Clinical Practice • Medical Services"
         },
@@ -982,8 +979,17 @@ function openCareerDetails(career) {
             course: "Bachelor of Computer Applications",
             duration: "आमतौर पर 3–4 Years",
             eligibility: "12th",
-            admission: "University/College के नियम के अनुसार",
+            admission: "University/College rules",
             scope: "Software • Web Development • IT • Applications"
+        },
+
+        banking: {
+            title: "🏦 Banking",
+            course: "Banking & Finance",
+            duration: "Exam/Course के अनुसार",
+            eligibility: "Exam के अनुसार",
+            admission: "IBPS • SBI • Other recruitment exams",
+            scope: "Bank PO • Clerk • Banking Services"
         }
     };
 
@@ -991,31 +997,44 @@ function openCareerDetails(career) {
 
     if (!data) return;
 
-    const result = document.getElementById("careerDetails");
+    const result =
+        document.getElementById("careerDetails");
+
+    if (!result) return;
 
     result.innerHTML = `
         <div class="career-detail-box">
-            <h3>${data.title}</h3>
-            <p><strong>🎓 Course:</strong> ${data.course}</p>
-            <p><strong>⏳ Duration:</strong> ${data.duration}</p>
-            <p><strong>📝 Eligibility:</strong> ${data.eligibility}</p>
-            <p><strong>🧾 Admission:</strong> ${data.admission}</p>
-            <p><strong>💼 Career Scope:</strong> ${data.scope}</p>
-        </div>
-    `;
- function showResources() {
-    const list = document.getElementById("resourcesList");
 
-    list.innerHTML = `
-        <div class="card">
-            <h3>📚 Class 12 PCB Resources</h3>
-            <p>Physics, Chemistry और Biology के important notes और questions.</p>
-            <p>📝 Important Questions</p>
-            <p>📖 Chapter-wise Revision</p>
-            <p>🎯 Board Exam Preparation</p>
+            <h3>${data.title}</h3>
+
+            <p>
+                <strong>🎓 Course:</strong>
+                ${data.course}
+            </p>
+
+            <p>
+                <strong>⏳ Duration:</strong>
+                ${data.duration}
+            </p>
+
+            <p>
+                <strong>📋 Eligibility:</strong>
+                ${data.eligibility}
+            </p>
+
+            <p>
+                <strong>📝 Admission:</strong>
+                ${data.admission}
+            </p>
+
+            <p>
+                <strong>💼 Career Scope:</strong>
+                ${data.scope}
+            </p>
+
         </div>
     `;
- }       
+    }
 </script>
 
 </body>
